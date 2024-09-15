@@ -22,19 +22,36 @@ function toggleTheme() {
     }
 }
 
-let messages = [];
-let currentMessageIndex = 0;
-
-fetch('./quotes.json')
-    .then(response => response.json())
-    .then(data => {
-        const randomIndex = Math.floor(Math.random() * data.length);
-        const randomQuote = data[randomIndex];
-        document.getElementById('flashing-message').textContent = randomQuote;
-    })
-    .catch(error => console.error('Error loading quotes:', error));
+let messages = [
+    "By ChatGPT!",
+    "MinecraftEdu!",
+    "Minecraft!",
+    "Pre-classic!",
+    "Classic!",
+    "Indev!",
+    "Infdev!",
+    "Vanilla!",
+    "Try shift+F2!",
+    "Sky dimension!",
+    "The first is 0.6!",
+    "Try F7 in Indev!",
+    "Keep away 422!",
+    "Github Pages!",
+    "Nether Reactor!",
+    "glowingobsidian!",
+    "Reserved6!",
+    "Winter Mode!",
+    "Miner!",
+    "Is Alpha!"
+];
 
 document.addEventListener('DOMContentLoaded', loadMessages);
+
+function loadMessages() {
+    const randomIndex = Math.floor(Math.random() * messages.length);
+    const randomQuote = messages[randomIndex];
+    document.getElementById('flashing-message').textContent = randomQuote;
+}
 
 function filterVersions() {
     const searchInput = document.getElementById('search').value.toLowerCase();
