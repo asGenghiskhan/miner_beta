@@ -25,7 +25,7 @@ function toggleTheme() {
 let messages = [];
 let currentMessageIndex = 0;
 
-fetch('quotes.json')
+fetch('./quotes.json')
     .then(response => response.json())
     .then(data => {
         const randomIndex = Math.floor(Math.random() * data.length);
