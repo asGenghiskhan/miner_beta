@@ -1,0 +1,605 @@
+@font-face {
+    font-family: 'Minecraft';
+    src: url('fonts/Minecraft.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Minecraft', sans-serif;
+    background: linear-gradient(180deg, #2e2e2e, #1e1e1e);
+    line-height: 1.6;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+    padding-bottom: 50px; /* 为footer留出空间 */
+}
+
+body.light {
+    color: #000000;
+    position: relative; /* 使背景图片的绝对定位相对 */
+    height: 100vh; /* 使 body 高度为视口的100% */
+}
+
+body.light footer {
+    background-color: #E1F5FE;
+    color: #000000;
+}
+
+body.light .version-card {
+    background-color: #f0f0f0;
+}
+
+body.light .version-card:hover {
+    background-color: #e0e0e0;
+}
+
+body.light header{
+    background-color: #E1F5FE;
+}
+
+body.light .version-card button {
+    background-color: #1976D2;
+    color: #ffffff;
+}
+
+body.light nav button {
+    background-color: #1976D2;
+}
+
+body.light mainnav button {
+    background-color: #1976D2;
+}
+
+body.light .game-selection button {
+    background-color: #4682B4;
+}
+
+body.light label {
+    color: #000000;
+}
+
+body.light .styled-select {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    color: #333;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><polygon points="0,0 10,0 5,5" fill="%234CAF50"/></svg>');
+}
+
+body.light .styled-select:focus {
+    border-color: #4CAF50;
+    background-color: #f9f9f9;
+}
+
+body.light .styled-select:hover {
+    border-color: #4CAF50; 
+    background-color: #e1e1e1; 
+}
+
+body.light .background {
+    background-color: #ffffff;
+    position: fixed; /* 使用 fixed 确保背景固定 */
+    top: 0; /* 贴合顶部 */
+    left: 0; /* 贴合左边 */
+    width: 100%; /* 100% 宽度 */
+    height: 100%; /* 100% 高度 */
+    background-image: url('icons/background.png'); /* 背景图片路径 */
+    background-size: cover; /* 背景图片覆盖 */
+    background-position: center; /* 背景居中 */
+    filter: blur(8px) brightness(1.2); /* 设置模糊和亮度 */
+    animation: scroll 20s linear infinite; /* 设置滚动动画 */
+    z-index: -1; /* 确保背景在所有内容下方 */
+}
+
+@keyframes scroll {
+    0% {
+        background-position: 0 0; /* 初始位置 */
+    }
+    100% {
+        background-position: 100% 0; /* 结束位置 */
+    }
+}
+
+header {
+    background-color: #3e3e3e;
+    padding: 15px;
+    text-align: center;
+    height: 420px;
+}
+
+nav {
+    margin: 10px 0;
+}
+
+nav input {
+    padding: 8px;
+    width: 250px;
+    border: 1px solid #5e5e5e;
+    border-radius: 5px;
+}
+
+button {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+nav button {
+    padding: 8px;
+    background-color: #5e5e5e;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#version-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.game-selection {
+    margin: 10px 0;
+}
+
+.game-selection button {
+    padding: 10px;
+    background-color: #4e4e4e;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    margin-bottom: 10px; /* 增加底部间距 */
+}
+
+main {
+    padding: 20px;
+}
+
+.version-card {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: #4e4e4e;
+    border: 1px solid #5e5e5e;
+    border-radius: 5px;
+    margin: 0 auto;  /* 使版本框居中 */
+    padding: 20px;  /* 添加内边距 */
+    max-width: 800px;  /* 设定最大宽度 */
+    display: flex;  /* 使其使用 flexbox */
+    flex-direction: column;  /* 设定为垂直排列 */
+    align-items: center;  /* 使内容居中 */
+}
+
+.version-card {
+    margin: 20px 0;  /* 添加上下边距 */
+    padding: 20px;  /* 添加内边距 */
+}
+
+.version-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.version-card button {
+    padding: 10px;
+    background-color: #6e6e6e;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px 0;
+}
+
+.version-type {
+    font-size: 0.8em;
+    color: #888;
+    margin-left: 10px;
+}
+
+.version-selection {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.version-buttons {
+    display: flex;  /* 使用 Flexbox */
+    justify-content: center;  /* 水平居中 */
+    gap: 10px;  /* 添加按钮之间的间距 */
+    margin-top: 10px;  /* 添加按钮容器的顶部间距 */
+}
+
+label {
+    font-size: 18px;
+    margin-right: 10px;
+    color: #ffffff;  /* 改为白色 */
+}
+
+.styled-select {
+    font-family: 'Minecraft', sans-serif;
+    appearance: none;  /* 去掉默认样式 */
+    -webkit-appearance: none; /* Safari */
+    -moz-appearance: none; /* Firefox */
+    background-color: #333; /* 深色背景 */
+    border: 1px solid #555; /* 深色边框 */
+    border-radius: 5px;
+    padding: 12px;  /* 增大内边距 */
+    font-size: 16px;
+    color: #fff; /* 白色文字 */
+    cursor: pointer;
+    transition: border-color 0.3s, background-color 0.3s;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><polygon points="0,0 10,0 5,5" fill="%23FFFFFF"/></svg>'); /* 白色下拉箭头 */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+    width: 150px; /* 增大下拉框的宽度 */
+    height: 50px; /* 固定高度 */
+}
+
+.styled-select:focus {
+    border-color: #4CAF50;  /* 聚焦时的边框颜色 */
+    outline: none;  /* 去掉默认的焦点样式 */
+    background-color: #444; /* 聚焦时的背景颜色 */
+}
+
+.styled-select:hover {
+    border-color: #4CAF50; /* 悬停时的边框颜色 */
+    background-color: #555; /* 悬停时的背景颜色 */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #3e3e3e;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.about-section, .settings-section {
+    text-align: center;
+    padding: 20px;
+}
+
+h1, h2, h3, h4, h5, p, button {
+    font-family: 'Minecraft', sans-serif; /* 确保所有元素使用Minecraft字体 */
+    text-align: center;
+}
+
+:root {
+    --title-margin: 40px;  /* 设置变量 */
+}
+
+h2 {
+    margin: var(--title-margin) 0;  /* 使用变量 */
+}
+
+h3 {
+    margin: var(--title-margin) 0;  /* 使用变量 */
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #2e2e2e;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.modal {
+    display: none; /* 默认隐藏 */
+    position: fixed; /* 固定定位 */
+    z-index: 1; /* 置于最上层 */
+    left: 0;
+    top: 0;
+    width: 100%; /* 全屏 */
+    height: 100%; /* 全屏 */
+    overflow: auto; /* 允许滚动 */
+    background-color: rgba(0, 0, 0, 0.1); /* 深色背景 */
+    background-color: rgb(0, 0, 0); /* 背景颜色 */
+}
+
+.modal-content {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #1e1e1e; /* 深色弹窗背景 */
+    color: #ffffff; /* 白色文字 */
+    border: 1px solid #444; /* 深色边框 */
+    margin: 15% auto; /* 中心对齐 */
+    padding: 20px; /* 内边距 */
+    width: 80%; /* 弹窗宽度 */
+}
+
+.close-button {
+    color: #ffffff; /* 关闭按钮白色 */
+    float: right; /* 右对齐 */
+    font-size: 28px; /* 字体大小 */
+    font-weight: bold; /* 字体加粗 */
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #ddd; /* 悬停时颜色 */
+    text-decoration: none; /* 去掉下划线 */
+    cursor: pointer; /* 鼠标指针 */
+}
+
+body.light .modal {
+    background-color: rgba(0, 0, 0, 0.4); /* 背景颜色透明 */
+}
+
+body.light .modal-content {
+    color: #000000; 
+    background-color: #fefefe; /* 弹窗内容背景 */
+    border: 1px solid #888; /* 边框 */
+}
+
+body.light .close-button {
+    color: #aaa; /* 关闭按钮颜色 */
+}
+
+body.light .close-button:hover {
+    color: black; /* 悬停时颜色 */
+}
+
+.flashing-message {
+    font-size: 24px; /* 初始字体大小 */
+    animation: flash 0.5s infinite; /* 动画效果 */
+    text-align: center; /* 居中对齐 */
+    color: #FFF700; /* 文字颜色 */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* 添加阴影 */
+}
+
+@keyframes flash {
+    0%, 100% {
+        font-size: 24px; /* 初始大小 */
+    }
+    50% {
+        font-size: 28px; /* 中间大小 */
+    }
+}
+
+body {
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    margin: 20px 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.search-box {
+    font-family: 'Minecraft', sans-serif;
+    position: relative; /* 为了定位搜索图标 */
+    width: 80%; /* 使搜索框宽度为父容器的80% */
+    max-width: 250px; /* 设定最大宽度 */
+    margin-bottom: 20px; /* 增加底部间距 */
+}
+
+.search-input {
+    font-family: 'Minecraft';
+    width: 100%;
+    padding: 12px 40px; /* 右侧留出空间给图标 */
+    border: 1px solid #555; /* 边框颜色 */
+    border-radius: 5px;
+    background-color: #333; /* 深色背景 */
+    color: #fff; /* 白色文字 */
+    font-size: 16px;
+    transition: border-color 0.3s, background-color 0.3s;
+    background-image: url('icons/search/light.png'); /* 搜索图标路径 */
+    background-repeat: no-repeat;
+    background-position: 10px center; /* 图标位置 */
+}
+
+.search-input:focus {
+    border-color: #4CAF50; /* 聚焦时的边框颜色 */
+    outline: none; /* 去掉默认的焦点样式 */
+    background-color: #444; /* 聚焦时的背景颜色 */
+}
+
+.search-input::placeholder {
+    color: #aaa; /* 占位符颜色 */
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px; /* 图标位置 */
+    top: 50%;
+    transform: translateY(-50%); /* 垂直居中 */
+    width: 20px; /* 图标宽度 */
+    height: 20px; /* 图标高度 */
+    fill: #fff; /* 图标颜色 */
+}
+
+body.light .search-input {
+    border: 1px solid #ccc; /* 浅色边框 */
+    background-color: #f9f9f9; /* 浅色背景 */
+    color: #333; /* 深色文字 */
+    background-image: url('icons/search/dark.png'); /* 搜索图标路径 */
+}
+
+body.light .search-input:focus {
+    border-color: #007BFF; /* 聚焦时的边框颜色 */
+    background-color: #fff; /* 聚焦时的背景颜色 */
+}
+
+body.light .search-input::placeholder {
+    color: #aaa; /* 占位符颜色 */
+}
+
+body.light .search-icon {
+    fill: #333; /* 图标颜色 */
+}
+
+#music-toggle {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+#music-label {
+    margin-right: 10px;
+}
+#music-switch {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+#music-switch img {
+    width: auto;  /* 自动调整宽度 */
+    height: 30px; /* 根据需要调整高度 */
+}
+#play-button {
+    display: none;  /* 默认隐藏 */
+    margin-top: 10px;
+    cursor: pointer;
+    padding: 8px;
+    background-color: #5e5e5e;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+}
+
+body.light #play-button {
+    background-color: #1976D2;
+}
+
+.fuzzy-search-label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* 使文本左对齐 */
+    margin-bottom: 10px;
+}
+
+.fuzzy-search-checkbox {
+    display: none; /* 隐藏原始复选框 */
+}
+
+.fuzzy-search-custom {
+    width: 57px; /* 根据需要调整框的大小 */
+    height: 30px; /* 根据需要调整框的大小 */
+    background-image: url('icons/off.png'); /* 替换为你的图片路径 */
+    background-size: contain; /* 适应背景图像 */
+    background-repeat: no-repeat; /* 不重复显示 */
+    margin-left: 8px;
+    cursor: pointer; /* 鼠标悬停时显示为手形 */
+    display: inline-block; /* 确保图标一直显示 */
+}
+
+.fuzzy-search-checkbox:checked + .fuzzy-search-custom {
+    background-image: url('icons/on.png'); /* 替换为选中时的图片路径 */
+}
+
+.details {
+    display: none; /* 默认隐藏 */
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border-color: #5e5e5e; /* 深色模式边框色 */
+    background-color: #4e4e4e; /* 深色模式背景色 */
+}
+
+.version {
+    cursor: pointer;
+    color: #1e90ff; /* 深色模式版本文字色 */
+    text-decoration: underline;
+}
+
+/* 详细信息样式 */
+body.light .details {
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+body.light .version {
+    color: #007BFF;
+}
+
+#slogan {
+    background: #2a2a2a; /* 深色背景 */
+    border: 2px solid #66bb6a; /* 边框颜色 */
+    border-radius: 12px; /* 圆角边框 */
+    padding: 20px; /* 内边距 */
+    text-align: center; /* 文本居中 */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* 深色阴影 */
+    margin: 20px 0; /* 上下外边距 */
+    font-size: 1.2em; /* 字体大小 */
+    font-weight: bold; /* 字体加粗 */
+    height: 100px;
+    display: flex; /* 使用 flexbox */
+    justify-content: center; /* 水平居中对齐 */
+    align-items: center; /* 垂直居中对齐 */
+    text-align: center; /* 文字居中 */
+}
+
+body.light #slogan {
+    background: linear-gradient(135deg, #f0f0f0, #ffffff); /* 渐变背景 */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* 更强的阴影 */
+    border: 2px solid #4CAF50; /* 绿色边框 */
+}
+
+mainnav {
+    display: flex; /* 使用 Flexbox */
+    justify-content: center; /* 水平居中 */
+    flex-wrap: wrap; /* 允许换行 */
+    margin: 20px 0; /* 上下外边距 */
+    text-align: center; /* 文字居中 */
+    gap: 20px; /* 设置按钮之间的间隙 */
+}
+
+mainnav button {
+    padding: 8px;
+    background-color: #5e5e5e;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#progress-container {
+    width: 300px;
+    background: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    margin: 10px 0; /* 进度条之间的间距 */
+}
+
+.progress-bar {
+    height: 30px;
+    border-radius: 5px;
+    transition: width 0.5s;
+}
+
+.progress-percentage {
+    position: absolute;
+    right: 10px;
+    top: 2px;
+    color: #000;
+}
+
+.red { background: #ff4d4d; }          /* 红色 (最低等级) */
+.orange { background: #ff9800; }       /* 橙色 (第二等级) */
+.yellow { background: #ffc107; }       /* 黄色 (中等级) */
+.light-green { background: #66bb6a; }  /* 浅绿色 (第四等级) */
+.green { background: #388e3c; }        /* 绿色 (最高等级) */
+
+/* 颜色样式 */
+body.light .red { background: #ff4d4d; }          /* 红色 (最低等级) */
+body.light .orange { background: #ffcc00; }       /* 橙色 (第二等级) */
+body.light .yellow { background: #ffff00; }       /* 黄色 (中等级) */
+body.light .light-green { background: #8bc34a; }  /* 浅绿色 (第四等级) */
+body.light .green { background: #4caf50; }        /* 绿色 (最高等级) */
+
+/* 浅色模式样式 */
+body.light #progress-container {
+    background: #f0f0f0;
+}

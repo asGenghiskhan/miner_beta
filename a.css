@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'Minecraft';
+    src: url('fonts/Minecraft.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Minecraft', sans-serif; /* 使用 Minecraft 字体 */
+    background-color: #f0f4f8; /* 明亮的背景色 */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#content {
+    display: none;
+}
+
+.modal-content {
+    background: #ffffff; /* 白色背景 */
+    padding: 20px;
+    border: 1px solid #ccc; /* 浅灰色边框 */
+    border-radius: 10px; /* 圆角 */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center; /* 弹窗内容居中对齐 */
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc; /* 浅灰色边框 */
+    border-radius: 5px; /* 圆角 */
+    background: #f9f9f9; /* 浅灰色背景 */
+    font-size: 16px;
+}
+
+button {
+    background: #007bff; /* 蓝色背景 */
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px 0;
+    transition: background 0.3s; /* 背景色过渡效果 */
+}
+
+button:hover {
+    background: #0056b3; /* 悬停时变深色 */
+}
+
+.game-image {
+    max-width: 50%; /* 限制最大宽度为50% */
+    height: auto; /* 自动调整高度以保持比例 */
+    margin: 10px 0; /* 上下边距 */
+}

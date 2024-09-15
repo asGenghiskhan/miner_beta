@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的世界版本库</title>
+    <link rel="stylesheet" href="a.css">
+</head>
+<body>
+
+<div id="modal" style="display: none;">
+    <div class="modal-content">
+        <h2>请输入密码</h2>
+        <input type="password" id="password" placeholder="密码">
+        <button id="submit">提交</button>
+        <button id="close">返回到正式版</button>
+    </div>
+</div>
+
+<div id="content">
+    <h1>Welcome to miner 0.14 alpha build 1!</h1>
+    <img src="icons/welcome.png" alt="我的世界图片" class="game-image"> <!-- 替换为你的图片 URL -->
+    <h2>以下是关于此版本的更新内容</h2>
+    <p>首页增加了加入Q群等选项</p>
+    <p>调整了文件结构(技术上)</p>
+    <p>增加了3ds版的页面(未完成，不使用模糊搜索)</p>
+    <button id="clearData">清除数据</button>
+    <button onclick="window.location.href='home.html'">前往首页</button>
+</div>
+
+<script src="js/password.js"></script>
+</body>
+</html>
