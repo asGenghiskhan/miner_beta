@@ -23,7 +23,7 @@ submitButton.onclick = function() {
 };
 
 closeButton.onclick = function() {
-    window.location.href = 'https://asgenghiskhan.github.io'; // 替换为你想跳转的链接
+    window.location.href = 'https://asgenghiskhan.github.io/miner/'; // 替换为你想跳转的链接
 };
 
 // 清除数据按钮的功能
