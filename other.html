@@ -15,9 +15,9 @@
                 <input type="text" class="search-input" id="search" placeholder="搜索版本..." oninput="filterVersions()" />
             </div>
             <button onclick="toggleTheme()">切换主题</button>
-            <button onclick="showSection('menu')">首页</button>
+            <button onclick="window.location.href='home.html'">返回首页</button>
+            <button onclick="showSection('menu')">详情</button>
             <button id="show-all-versions" onclick="showSection('all')">显示所有版本</button>
-            <button onclick="showSection('about')">关于</button>
             <button onclick="showSection('settings')">设置</button>
         </nav>
         <div class="version-selection">
@@ -35,23 +35,12 @@
             <button onclick="filterByGame('meec')">教育个人版</button>
             <button onclick="filterByGame('mcpi')">树莓派版</button>
         </div>
-        <div id="flashing-message" class="flashing-message">missingno!</div>
     </header>
     <main>
         <section id="menu" class="menu-section">
             <div class="background"></div>
-            <h2>版本库首页</h2>
-            <p>版本库处于早期开发内测阶段，英文暂定名为miner，临时名为我的世界版本库。严禁在未经许可的情况下对外公开。请点击上面显示所有版本来查看版本库中的版本。目前MinecraftEdu还没有提供1.6.4，1.7.10的下载链接，3ds版没有下载链接。请不要点击反馈问题按钮反馈问题，因为那是正式版的问题反馈链接</p>
-            <mainnav>
-                <button onclick="window.location.href='changelog.html'">查看更新日志</button>
-                <button class="button" onclick="window.location.href='https://github.com/asGenghiskhan/miner/issues/new'">反馈问题</button>
-                <button class="button" onclick="window.location.href='https://qm.qq.com/q/LexvkYlKWC'">加入Q群</button>
-            </mainnav>
-            <mainnav>
-                <button onclick="window.location.href='3ds.html'">跳转至3ds版下载</button>
-                <button onclick="window.location.href='index.html'">版本信息</button>
-                <button onclick="window.location.href='newhome.html'">新的主菜单页面</button>                
-            </mainnav>
+            <h2>其它版本</h2>
+            <p>这是一个说明</p>
             <br></br><br></br>
         </section>
         <section id="home" class="version-list" style="display: none;">
@@ -391,14 +380,6 @@
             </div>
             <br></br>
         </section>
-        <section id="about" class="about-section" style="display: none;">
-            <div class="background"></div>
-            <h2>关于版本库</h2>
-            <p>这是一个关于《我的世界》版本的库，提供了MinecraftEdu、京东教育版、教育个人版和树莓派版的下载链接和版本信息。</p>
-            <p>版本库会定期更新，欢迎大家使用！</p>
-            <p>0.14 alpha build 2(01),Made by Asgenghiskhan</p>
-            <br></br>
-        </section>
         <section id="settings" class="settings-section" style="display: none;">
             <div class="background"></div>
             <h2>设置</h2>
@@ -471,6 +452,6 @@
             <p id="modal-content">这个版本没有详细信息</p>
         </div>
     </div>
-    <script src="js/script.js"></script>
+    <script src="js/other.js"></script>
 </body>
 </html>
