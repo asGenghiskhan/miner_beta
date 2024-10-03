@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的世界版本库</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <style id="header">
+        header {
+            height: 245px;
+        }
+    </style>
+    <header>
+        <link rel="shortcut icon" href="icons/icon.png" type="image/png">
+        <h1>我的世界版本库</h1>
+        <nav>
+            <button onclick="toggleTheme()">切换主题</button>
+            <button onclick="showSection('menu')">首页</button>
+            <button onclick="showSection('about')">关于</button>
+            <button onclick="showSection('settings')">设置</button>
+        </nav>
+        <br>
+        <div id="flashing-message" class="flashing-message">missingno!</div>
+    </header>
+    <main>
+        <section id="menu" class="menu-section">
+            <div class="background"></div>
+            <h2>版本库首页</h2>
+            <p>版本库处于早期开发内测阶段，英文暂定名为miner，临时名为我的世界版本库。严禁在未经许可的情况下对外公开。请点击上面显示所有版本来查看版本库中的版本。目前MinecraftEdu还没有提供1.6.4，1.7.10的下载链接，3ds版没有下载链接。请不要点击反馈问题按钮反馈问题，因为那是正式版的问题反馈链接</p>
+            <mainnav>
+                <button onclick="window.location.href='changelog.html'">查看更新日志</button>
+                <button class="button" onclick="window.location.href='https://github.com/asGenghiskhan/miner/issues/new'">反馈问题</button>
+                <button class="button" onclick="window.location.href='https://qm.qq.com/q/LexvkYlKWC'">加入Q群</button>
+            </mainnav>
+            <mainnav>
+                <button onclick="window.location.href='3ds.html'">跳转至3ds版下载</button>
+                <button onclick="window.location.href='other.html'">跳转至其它版本下载</button>
+                <button onclick="window.location.href='../index.html'">版本信息</button>
+                <button onclick="window.location.href='oldhome.html'">返回旧菜单</button>
+            </mainnav>
+            <br></br><br></br>
+        </section>
+        <section id="about" class="about-section" style="display: none;">
+            <div class="background"></div>
+            <h2>关于版本库</h2>
+            <p>这是一个关于《我的世界》版本的库，提供了MinecraftEdu、京东教育版、教育个人版和树莓派版的下载链接和版本信息。</p>
+            <p>版本库会定期更新，欢迎大家使用！</p>
+            <p>0.14 alpha build 2(02),Made by Asgenghiskhan</p>
+            <br></br>
+        </section>
+        <section id="settings" class="settings-section" style="display: none;">
+            <div class="background"></div>
+            <h2>设置</h2>
+            <audio id="background-music" loop>
+                <source id="music-source" src="" type="audio/mpeg">
+                你的浏览器不支持音频标签。
+            </audio>
+            <div id="music-toggle" onclick="toggleMusic()">
+                <span id="music-label">音乐</span>
+                <div id="music-switch" class="switch">
+                    <img id="toggle-icon" src="../icons/off.png" alt="开关图标">
+                </div>
+            </div>
+            <button id='play-button' onclick="playRandomMusic()">播放随机音乐</button>
+            <br></br>
+            <label class="fuzzy-search-label">
+                启用模糊搜索
+                <input type="checkbox" id="fuzzy-search" checked class="fuzzy-search-checkbox">
+                <span class="fuzzy-search-custom"></span>
+            </label>
+            <label for="language-select">选择语言:</label>
+            <select id="language-select" onchange="changeLanguage()">
+                <option value="zh">中文</option>
+                <option value="en">English</option>
+            </select>
+            <br></br>
+            <script src="../js/music.js"></script>
+            <script src="../js/language.js"></script>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 我的世界版本库. 保留所有权利。</p>
+    </footer>
+    <script src="../js/home.js"></script>
+</body>
+</html>

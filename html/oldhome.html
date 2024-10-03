@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的世界版本库</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <link rel="shortcut icon" href="icons/icon.png" type="image/png">
+        <h1>我的世界版本库</h1>
+        <nav>
+            <div class="search-box">
+                <input type="text" class="search-input" id="search" placeholder="搜索版本..." oninput="filterVersions()" />
+            </div>
+            <button onclick="toggleTheme()">切换主题</button>
+            <button onclick="showSection('menu')">首页</button>
+            <button id="show-all-versions" onclick="showSection('all')">显示所有版本</button>
+            <button onclick="showSection('about')">关于</button>
+            <button onclick="showSection('settings')">设置</button>
+        </nav>
+        <div class="version-selection">
+            <label for="version-type">选择版本类型:</label>
+            <select id="version-type" class="styled-select" onchange="filterByType(this.value)">
+                <option value="全部">全部</option>
+                <option value="正式版">正式版</option>
+                <option value="测试版">测试版</option>
+                <option value="开发版">开发版</option>
+            </select>
+        </div>
+        <div class="game-selection">
+            <button onclick="filterByGame('MinecraftEdu')">MinecraftEdu</button>
+            <button onclick="filterByGame('jdee')">京东教育版</button>
+            <button onclick="filterByGame('meec')">教育个人版</button>
+            <button onclick="filterByGame('mcpi')">树莓派版</button>
+        </div>
+        <div id="flashing-message" class="flashing-message">missingno!</div>
+    </header>
+    <main>
+        <section id="menu" class="menu-section">
+            <div class="background"></div>
+            <h2>版本库首页</h2>
+            <p>版本库处于早期开发内测阶段，英文暂定名为miner，临时名为我的世界版本库。严禁在未经许可的情况下对外公开。请点击上面显示所有版本来查看版本库中的版本。目前MinecraftEdu还没有提供1.6.4，1.7.10的下载链接，3ds版没有下载链接。请不要点击反馈问题按钮反馈问题，因为那是正式版的问题反馈链接</p>
+            <mainnav>
+                <button onclick="window.location.href='changelog.html'">查看更新日志</button>
+                <button class="button" onclick="window.location.href='https://github.com/asGenghiskhan/miner/issues/new'">反馈问题</button>
+                <button class="button" onclick="window.location.href='https://qm.qq.com/q/LexvkYlKWC'">加入Q群</button>
+            </mainnav>
+            <mainnav>
+                <button onclick="window.location.href='3ds.html'">跳转至3ds版下载</button>
+                <button onclick="window.location.href='../index.html'">版本信息</button>
+                <button onclick="window.location.href='home.html'">新的主菜单页面</button>                
+            </mainnav>
+            <br></br><br></br>
+        </section>
+        <section id="home" class="version-list" style="display: none;">
+            <div class="background"></div>
+            <h2>版本库</h2>
+            <h3 onclick="showDetails('MinecraftEdu')">MinecraftEdu</h3>
+            <h4><b>正式版</b></h4>
+            <h5>1.8.9</h5>
+            <div class="version-card" data-version="1.8.9 Build 3" data-game="MinecraftEdu" data-type="开发版">
+                <h4>1.8.9 Build 3<span class="version-type">(开发版)</span></h4>
+                <p>发布日期: 2016-4-5</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.8.9 Build 3', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('1.8.9 Build 3')">详细信息</button>
+                </div>
+            </div>
+            <h5>1.7.10</h5>
+            <div class="version-card" data-version="1.7.10 Build 22" data-game="MinecraftEdu" data-type="正式版">
+                <h4>1.7.10 Build 22<span class="version-type">(正式版)</span></h4>
+                <p>发布日期: 2022-08-30</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.7.10 Build 22', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('1.7.10 Build 22')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.7.10 Build 21" data-game="MinecraftEdu" data-type="正式版">
+                <h4>1.7.10 Build 21<span class="version-type">(正式版)</span></h4>
+                <p>发布日期: 2022-08-30</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.7.10 Build 21', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('1.7.10 Build 21')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.7.10 Build 20" data-game="MinecraftEdu" data-type="正式版">
+                <h4>1.7.10 Build 20<span class="version-type">(正式版)</span></h4>
+                <p>发布日期: 2022-08-30</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.7.10 Build 20', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('1.7.10 Build 20')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.7.10 Build 19" data-game="MinecraftEdu" data-type="开发版">
+                <h4>1.7.10 Build 19<span class="version-type">(开发版)</span></h4>
+                <p>发布日期: 2022-08-30</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.7.10 Build 19', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('1.7.10 Build 19')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.7.10 Build 15" data-game="MinecraftEdu" data-type="开发版">
+                <h4>1.7.10 Build 15<span class="version-type">(开发版)</span></h4>
+                <p>发布日期: 2022-08-30</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.7.10 Build 15', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('1.7.10 Build 15')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.7.10 Build 12" data-game="MinecraftEdu" data-type="正式版">
+                <h4>1.7.10 Build 12<span class="version-type">(正式版)</span></h4>
+                <p>发布日期: 2022-08-30</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.7.10 Build 12', 'classroom')">下载教室版</button>
+                    <button onclick="downloadVersion('1.7.10 Build 12', 'hosting')">下载hosting</button>
+                    <button onclick="showDetails('1.7.10 Build 12')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.7.10 Build 11" data-game="MinecraftEdu" data-type="正式版">
+                <h4>1.7.10 Build 11<span class="version-type">(正式版)</span></h4>
+                <p>发布日期: 2022-08-30</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.7.10 Build 11', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('1.7.10 Build 11')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.7.10 Build 10" data-game="MinecraftEdu" data-type="开发版">
+                <h4>1.7.10 Build 10<span class="version-type">(开发版)</span></h4>
+                <p>发布日期: 2022-08-30</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.7.10 Build 10', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('1.7.10 Build 10')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.7.10 Build 6" data-game="MinecraftEdu" data-type="正式版">
+                <h4>1.7.10 Build 6<span class="version-type">(正式版)</span></h4>
+                <p>发布日期: 2022-08-30</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.7.10 Build 6', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('1.7.10 Build 6')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.7.10 Build 3 macbook_pro" data-game="MinecraftEdu" data-type="开发版">
+                <h4>1.7.10 Build 3 macbook_pro<span class="version-type">(开发版)</span></h4>
+                <p>发布日期: 2022-08-30</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.7.10 Build 3 macbook_pro', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('1.7.10 Build 3 macbook_pro')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.7.10 Build 1 macbook_pro" data-game="MinecraftEdu" data-type="开发版">
+                <h4>1.7.10 Build 1 macbook_pro<span class="version-type">(开发版)</span></h4>
+                <p>发布日期: 2022-08-30</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.7.10 Build 1 macbook_pro', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('1.7.10 Build 1 macbook_pro')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.7.10 Build 1" data-game="MinecraftEdu" data-type="开发版">
+                <h4>1.7.10 Build 1<span class="version-type">(开发版)</span></h4>
+                <p>发布日期: 2022-08-30</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.7.10 Build 1', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('1.7.10 Build 1')">详细信息</button>
+                </div>
+            </div>
+            <h5>1.6.4</h5>
+            <div class="version-card" data-version="1.6.4 Build 20" data-game="MinecraftEdu" data-type="正式版">
+                <h4>1.6.4 Build 20<span class="version-type">(正式版)</span></h4>
+                <p>发布日期: 2022-08-30</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.6.4 Build 20', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('1.6.4 Build 20')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.6.4 Build 19" data-game="MinecraftEdu" data-type="开发版">
+                <h4>1.6.4 Build 19<span class="version-type">(开发版)</span></h4>
+                <p>发布日期: 2022-08-30</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.6.4 Build 19', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('1.6.4 Build 19')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.6.4 Build 18" data-game="MinecraftEdu" data-type="开发版">
+                <h4>1.6.4 Build 18<span class="version-type">(开发版)</span></h4>
+                <p>发布日期: 2022-08-30</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.6.4 Build 18', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('1.6.4 Build 18')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.6.4 Build 16" data-game="MinecraftEdu" data-type="开发版">
+                <h4>1.6.4 Build 16<span class="version-type">(开发版)</span></h4>
+                <p>发布日期: 2022-08-30</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.6.4 Build 16', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('1.6.4 Build 16')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.6.4 Build 15" data-game="MinecraftEdu" data-type="开发版">
+                <h4>1.6.4 Build 15<span class="version-type">(开发版)</span></h4>
+                <p>发布日期: 2022-08-30</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.6.4 Build 15', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('1.6.4 Build 15')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.6.4 Build 14" data-game="MinecraftEdu" data-type="正式版">
+                <h4>1.6.4 Build 14<span class="version-type">(正式版)</span></h4>
+                <p>发布日期: 2022-08-30</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.6.4 Build 14', 'classroom')">下载教室版</button>
+                    <button onclick="downloadVersion('1.6.4 Build 14', 'premium')">下载付费版</button>
+                    <button onclick="showDetails('1.6.4 Build 14')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.6.4 Build 8" data-game="MinecraftEdu" data-type="开发版">
+                <h4>1.6.4 Build 8<span class="version-type">(开发版)</span></h4>
+                <p>发布日期: 2022-08-30</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.6.4 Build 8', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('1.6.4 Build 8')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.6.4 Build 6" data-game="MinecraftEdu" data-type="正式版">
+                <h4>1.6.4 Build 6<span class="version-type">(正式版)</span></h4>
+                <p>发布日期: 2022-08-30</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.6.4 Build 6', 'classroom')">下载教室版</button>
+                    <button onclick="downloadVersion('1.6.4 Build 6', 'premium')">下载付费版</button>
+                    <button onclick="showDetails('1.6.4 Build 6')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.6.4 Build 1" data-game="MinecraftEdu" data-type="开发版">
+                <h4>1.6.4 Build 1<span class="version-type">(开发版)</span></h4>
+                <p>发布日期: 2022-08-30</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.6.4 Build 1', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('1.6.4 Build 1')">详细信息</button>
+                </div>
+            </div>
+            <h5>1.5.2</h5>
+            <div class="version-card" data-version="1.5.2 Build 1" data-game="MinecraftEdu" data-type="开发版">
+                <h4>1.5.2 Build 1<span class="version-type">(开发版)</span></h4>
+                <p>发布日期: 2013-09-13</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.5.2 Build 1', 'classroom')">下载教室版</button>
+                    <button onclick="downloadVersion('1.5.2 Build 1', 'premium')">下载付费版</button>
+                    <button onclick="showDetails('1.5.2 Build 1')">详细信息</button>
+                </div>
+            </div>
+            <h5>1.5.1</h5>
+            <div class="version-card" data-version="1.5.1 Build 16" data-game="MinecraftEdu" data-type="开发版">
+                <h4>1.5.1 Build 16<span class="version-type">(开发版)</span></h4>
+                <p>发布日期: 2013-07-12</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.5.1 Build 16', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('1.5.1 Build 16')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.5.1 Build 9" data-game="MinecraftEdu" data-type="正式版">
+                <h4>1.5.1 Build 9<span class="version-type">(正式版)</span></h4>
+                <p>发布日期: 2013-04-23</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.5.1 Build 9', 'premium')">下载付费版</button>
+                    <button onclick="showDetails('1.5.1 Build 9')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.5.1 Build 7" data-game="MinecraftEdu" data-type="开发版">
+                <h4>1.5.1 Build 7<span class="version-type">(开发版)</span></h4>
+                <p>发布日期: 2013-04-22</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.5.1 Build 7', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('1.5.1 Build 7')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.5.1 Build 4" data-game="MinecraftEdu" data-type="开发版">
+                <h4>1.5.1 Build 4<span class="version-type">(开发版)</span></h4>
+                <p>发布日期: 2013-04-17</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.5.1 Build 4', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('1.5.1 Build 4')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.5.1 Build 3" data-game="MinecraftEdu" data-type="开发版">
+                <h4>1.5.1 Build 3<span class="version-type">(开发版)</span></h4>
+                <p>发布日期: 2013-04-16</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.5.1 Build 3', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('1.5.1 Build 3')">详细信息</button>
+                </div>
+            </div>
+            <h4><b>Beta(Mod)</b></h4>
+            <div class="version-card" data-version="0.9847" data-game="MinecraftEdu">
+                <h4>0.9847</h4>
+                <p>发布日期: 2013-02-21</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('0.9847', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('0.9847')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="0.9843" data-game="MinecraftEdu">
+                <h4>0.9843</h4>
+                <p>发布日期: 2013-01-21</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('0.9843', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('0.9843')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="0.984" data-game="MinecraftEdu">
+                <h4>0.984</h4>
+                <p>发布日期: 2012-10-29</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('0.984', 'classroom')">下载教室版</button>
+                    <button onclick="showDetails('0.984')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="0.982" data-game="MinecraftEdu">
+                <h4>0.982</h4>
+                <p>发布日期: 2012-07-25</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('0.982', 'classroom')">下载教室版</button>
+                    <button onclick="downloadVersion('0.982', 'premium')">下载付费版</button>
+                    <button onclick="showDetails('0.982')">详细信息</button>
+                </div>
+            </div>
+            <h3 onclick="showDetails('京东教育版')">京东教育版</h3>
+            <div class="version-card" data-version="1.14.50" data-game="jdee" data-type="正式版">
+                <h4>1.14.50<span class="version-type">(正式版)</span></h4>
+                <p>发布日期: 未知</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.14.50', 'client')">下载</button>
+                    <button onclick="showDetails('1.14.50')">详细信息</button>
+                </div>
+            </div>
+            <h3 onclick="showDetails('教育个人版')">教育个人版</h3>
+            <h5>1.5</h5>
+            <div class="version-card" data-version="1.5.9" data-game="meec" data-type="正式版">
+                <h4>1.5.9<span class="version-type">(正式版)</span></h4>
+                <p>发布日期: 2023-08-03</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.5.9', 'win')">下载Windows端</button>
+                    <button onclick="downloadVersion('1.5.9', 'android')">下载Android端</button>
+                    <button onclick="showDetails('1.5.9')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.5.2" data-game="meec" data-type="正式版">
+                <h4>1.5.2<span class="version-type">(正式版)</span></h4>
+                <p>发布日期: 未知</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.5.2', 'android')">下载Android端</button>
+                    <button onclick="showDetails('1.5.2')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="1.5.1" data-game="meec" data-type="正式版">
+                <h4>1.5.1<span class="version-type">(正式版)</span></h4>
+                <p>发布日期: 2023-06-28</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.5.1', 'win')">下载Windows端</button>
+                    <button onclick="downloadVersion('1.5.1', 'android')">下载Android端</button>
+                    <button onclick="showDetails('1.5.1')">详细信息</button>
+                </div>
+            </div>
+            <h5>1.4</h5>
+            <div class="version-card" data-version="1.4.4" data-game="meec" data-type="正式版">
+                <h4>1.4.4<span class="version-type">(正式版)</span></h4>
+                <p>发布日期: 未知</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('1.4.4', 'android')">下载Android端</button>
+                    <button onclick="showDetails('1.4.4')">详细信息</button>
+                </div>
+            </div>
+            <h3 onclick="showDetails('树莓派版')">树莓派版</h3>
+            <div class="version-card" data-version="0.1.1" data-game="mcpi" data-type="正式版">
+                <h4>0.1.1<span class="version-type">(正式版)</span></h4>
+                <p>发布日期: 2013-02-11</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('0.1.1', 'client')">下载</button>
+                    <button onclick="showDetails('0.1.1')">详细信息</button>
+                </div>
+            </div>
+            <div class="version-card" data-version="0.1.0" data-game="mcpi" data-type="正式版">
+                <h4>0.1.0<span class="version-type">(正式版)</span></h4>
+                <p>发布日期: 未知</p>
+                <div class="version-buttons">
+                    <button onclick="downloadVersion('0.1.0', 'client')">下载</button>
+                    <button onclick="showDetails('0.1.0')">详细信息</button>
+                </div>
+            </div>
+            <br></br>
+        </section>
+        <section id="about" class="about-section" style="display: none;">
+            <div class="background"></div>
+            <h2>关于版本库</h2>
+            <p>这是一个关于《我的世界》版本的库，提供了MinecraftEdu、京东教育版、教育个人版和树莓派版的下载链接和版本信息。</p>
+            <p>版本库会定期更新，欢迎大家使用！</p>
+            <p>0.14 alpha build 2(02),Made by Asgenghiskhan</p>
+            <br></br>
+        </section>
+        <section id="settings" class="settings-section" style="display: none;">
+            <div class="background"></div>
+            <h2>设置</h2>
+            <audio id="background-music" loop>
+                <source id="music-source" src="" type="audio/mpeg">
+                你的浏览器不支持音频标签。
+            </audio>
+            <div id="music-toggle" onclick="toggleMusic()">
+                <span id="music-label">音乐</span>
+                <div id="music-switch" class="switch">
+                    <img id="toggle-icon" src="icons/off.png" alt="开关图标">
+                </div>
+            </div>
+            <button id='play-button' onclick="playRandomMusic()">播放随机音乐</button>
+            <br></br>
+            <label class="fuzzy-search-label">
+                启用模糊搜索
+                <input type="checkbox" id="fuzzy-search" checked class="fuzzy-search-checkbox">
+                <span class="fuzzy-search-custom"></span>
+            </label>
+            <br></br>
+            <script>
+                const musicFiles = [
+                    '../music/menu1.mp3',
+                    '../music/menu2.mp3',
+                    '../music/menu3.mp3',
+                    '../music/menu4.mp3'
+                ];
+        
+                const music = document.getElementById('background-music');
+                const musicSource = document.getElementById('music-source');
+                const playButton = document.getElementById('play-button');
+                let isMusicPlaying = false;
+        
+                function playRandomMusic() {
+                    const randomIndex = Math.floor(Math.random() * musicFiles.length);
+                    musicSource.src = musicFiles[randomIndex];
+                    music.load();  // 重新加载音频
+                    music.play();
+                    isMusicPlaying = true;
+                }
+        
+                function pauseMusic() {
+                    music.pause();
+                    isMusicPlaying = false;
+                }
+        
+                function toggleMusic() {
+                    isMusicPlaying = !isMusicPlaying;  // 切换音乐播放状态
+        
+                    if (isMusicPlaying) {
+                        playButton.style.display = 'inline-block'; // 显示播放按钮
+                        document.getElementById('toggle-icon').src = '../icons/on.png'; // 切换图标为开
+                    } else {
+                        playButton.style.display = 'none'; // 隐藏播放按钮
+                        document.getElementById('toggle-icon').src = '../icons/off.png'; // 切换图标为关
+                        pauseMusic(); // 暂停音乐
+                    }
+                }
+            </script>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 我的世界版本库. 保留所有权利。</p>
+    </footer>
+    <div id="detail-modal" class="modal" onclick="closeDetails(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-button" onclick="closeDetails(event)">x</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-content">这个版本没有详细信息</p>
+        </div>
+    </div>
+    <script src="../js/oldscript.js"></script>
+</body>
+</html>
